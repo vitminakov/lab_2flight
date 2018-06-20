@@ -1,4 +1,4 @@
-//класс даты и flight
+п»ї//РєР»Р°СЃСЃ РґР°С‚С‹ Рё flight
 #pragma once
 #include <stdio.h>
 #include <sstream>
@@ -24,33 +24,33 @@ Flight::Flight()
 Flight Flight::ChangeFlight(Flight &result)
 {
 	int n;
-	cout << "Выберите один из пунктов для изменения: " << endl;
-	cout << "1 - Изменить пункт назначения" << endl;
-	cout << "2 - Изменить фамилию пассажира " << endl;
-	cout << "3 - Изменить номер рейса" << endl;
-	cout << "4 - Изменить количество мест багажа" << endl;
-	cout << "5 - Изменить дату полета" << endl;
-	cout << "6 - Изменить вес багажа" << endl;
-	n = InputNumber(0, 6, "Ваш выбор:");
+	cout << "Р’С‹Р±РµСЂРёС‚Рµ РѕРґРёРЅ РёР· РїСѓРЅРєС‚РѕРІ РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ: " << endl;
+	cout << "1 - РР·РјРµРЅРёС‚СЊ РїСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ" << endl;
+	cout << "2 - РР·РјРµРЅРёС‚СЊ С„Р°РјРёР»РёСЋ РїР°СЃСЃР°Р¶РёСЂР° " << endl;
+	cout << "3 - РР·РјРµРЅРёС‚СЊ РЅРѕРјРµСЂ СЂРµР№СЃР°" << endl;
+	cout << "4 - РР·РјРµРЅРёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ Р±Р°РіР°Р¶Р°" << endl;
+	cout << "5 - РР·РјРµРЅРёС‚СЊ РґР°С‚Сѓ РїРѕР»РµС‚Р°" << endl;
+	cout << "6 - РР·РјРµРЅРёС‚СЊ РІРµСЃ Р±Р°РіР°Р¶Р°" << endl;
+	n = InputNumber(0, 6, "Р’Р°С€ РІС‹Р±РѕСЂ:");
 	switch (n)
 	{
 	case 1: 
-		result.location = InputInformation("Введите новый пункт назначения: ");
+		result.location = InputInformation("Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ РїСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ: ");
 		break;
 	case 2:
-		result.person = InputInformation("Введите фамилию пассажира: ");
+		result.person = InputInformation("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ РїР°СЃСЃР°Р¶РёСЂР°: ");
 		break;
 	case 3:
-		result.flynum = InputNumber(0, 100, "Введите номер рейса (0 - 100): ");
+		result.flynum = InputNumber(0, 100, "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЂРµР№СЃР° (0 - 100): ");
 		break;
 	case 4:
-		result.bagplace = InputNumber(0, 80, "Введите количество мест багажа (0-80): ");
+		result.bagplace = InputNumber(0, 80, "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ Р±Р°РіР°Р¶Р° (0-80): ");
 		break;
 	case 5:
 		result.execdate.InputDate();
 		break;
 	case 6:
-		result.bagweight = InputNumber(0, 40, "Введите вес багажа (0 - 40): ");
+		result.bagweight = InputNumber(0, 40, "Р’РІРµРґРёС‚Рµ РІРµСЃ Р±Р°РіР°Р¶Р° (0 - 40): ");
 		break;
 	default:
 		break;
@@ -59,7 +59,7 @@ Flight Flight::ChangeFlight(Flight &result)
 		return result;
 }
 
-	// перегруженный оператор равенства
+	// РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ СЂР°РІРµРЅСЃС‚РІР°
 Flight& Flight::operator = (Flight c)
 {
 		location = c.location;
@@ -71,39 +71,39 @@ Flight& Flight::operator = (Flight c)
 		return (*this);
 }
 
-// функция ввода структуры с консоли
+// С„СѓРЅРєС†РёСЏ РІРІРѕРґР° СЃС‚СЂСѓРєС‚СѓСЂС‹ СЃ РєРѕРЅСЃРѕР»Рё
 Flight InputScreenFlight()
 {
 	Flight c;
-	c.location = InputInformation("Введите пункт назначения: ");
-	c.person = InputInformation("Введите фамилию пассажира: ");
-	c.flynum = InputNumber(0, 100, "Введите номер рейса: ");
-	c.bagplace = InputNumber(0, 80, "Введите количество мест багажа: ");
+	c.location = InputInformation("Р’РІРµРґРёС‚Рµ РїСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ: ");
+	c.person = InputInformation("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ РїР°СЃСЃР°Р¶РёСЂР°: ");
+	c.flynum = InputNumber(0, 100, "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЂРµР№СЃР°: ");
+	c.bagplace = InputNumber(0, 80, "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ Р±Р°РіР°Р¶Р°: ");
 	c.execdate.InputDate();
-	c.bagweight = InputNumber(0, 40, "Введите вес багажа: ");
+	c.bagweight = InputNumber(0, 40, "Р’РІРµРґРёС‚Рµ РІРµСЃ Р±Р°РіР°Р¶Р°: ");
 	return c;
 }
 
-// функция вывода структуры на консоль
+// С„СѓРЅРєС†РёСЏ РІС‹РІРѕРґР° СЃС‚СЂСѓРєС‚СѓСЂС‹ РЅР° РєРѕРЅСЃРѕР»СЊ
 void OutputScreenFlight(Flight c)
 {
-	cout << "Пункт назначения: " << c.location << endl;
-	cout << "Фамилия пассажира: " << c.person << endl;
-	cout << "Номер рейса: " << c.flynum << endl;
-	cout << "Количество мест багажа: " << c.bagplace << endl;
-	cout << "Дата: " << c.execdate.ToString() << endl;
-	cout << "Вес багажа: " << c.bagweight << endl;
+	cout << "РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ: " << c.location << endl;
+	cout << "Р¤Р°РјРёР»РёСЏ РїР°СЃСЃР°Р¶РёСЂР°: " << c.person << endl;
+	cout << "РќРѕРјРµСЂ СЂРµР№СЃР°: " << c.flynum << endl;
+	cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ Р±Р°РіР°Р¶Р°: " << c.bagplace << endl;
+	cout << "Р”Р°С‚Р°: " << c.execdate.ToString() << endl;
+	cout << "Р’РµСЃ Р±Р°РіР°Р¶Р°: " << c.bagweight << endl;
 }
 
 
 
 string ToString(Flight c, int i)
 {
-	string result = "Запись № " + to_string(i) + "\n" + "Пункт назначения: " + c.location + "\n" + "Фамилия пассажира: " + c.person + "\n" + "Номер рейса: " + to_string(c.flynum) + "\n" + "Количество мест багажа: " + to_string(c.bagplace) + "\n" + "Дата и время вылета: " + c.execdate.ToString() + "\n" + "Вес багажа: " + to_string(c.bagweight) + "\n";
+	string result = "Р—Р°РїРёСЃСЊ в„– " + to_string(i) + "\n" + "РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ: " + c.location + "\n" + "Р¤Р°РјРёР»РёСЏ РїР°СЃСЃР°Р¶РёСЂР°: " + c.person + "\n" + "РќРѕРјРµСЂ СЂРµР№СЃР°: " + to_string(c.flynum) + "\n" + "РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ Р±Р°РіР°Р¶Р°: " + to_string(c.bagplace) + "\n" + "Р”Р°С‚Р° Рё РІСЂРµРјСЏ РІС‹Р»РµС‚Р°: " + c.execdate.ToString() + "\n" + "Р’РµСЃ Р±Р°РіР°Р¶Р°: " + to_string(c.bagweight) + "\n";
 	return result;
 }
 
-////считывание структуры из строки
+////СЃС‡РёС‚С‹РІР°РЅРёРµ СЃС‚СЂСѓРєС‚СѓСЂС‹ РёР· СЃС‚СЂРѕРєРё
 Flight ReadFromString(ifstream& input)
 {
 	Flight result;
@@ -117,31 +117,31 @@ Flight ReadFromString(ifstream& input)
 		if (!input.eof())
 		{
 			getline(input, s, '\n');
-			string wrd = "Пункт назначения: ";
+			string wrd = "РџСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ: ";
 			result.location = s.substr(wrd.length(), s.length());
 		}
 		if (!input.eof())
 		{
 			getline(input, s, '\n');
-			string wrd = "Фамилия пассажира: ";
+			string wrd = "Р¤Р°РјРёР»РёСЏ РїР°СЃСЃР°Р¶РёСЂР°: ";
 			result.person = s.substr(wrd.length(), s.length());
 		}
 		if (!input.eof())
 		{
 			getline(input, s, '\n');
-			string wrd = "Номер рейса: ";
+			string wrd = "РќРѕРјРµСЂ СЂРµР№СЃР°: ";
 			result.flynum = atoi(s.substr(wrd.length(), s.length()).c_str());
 		}
 		if (!input.eof())
 		{
 			getline(input, s, '\n');
-			string wrd = "Количество мест багажа: ";
+			string wrd = "РљРѕР»РёС‡РµСЃС‚РІРѕ РјРµСЃС‚ Р±Р°РіР°Р¶Р°: ";
 			result.bagplace = atoi(s.substr(wrd.length(), s.length()).c_str());
 		}
 		if (!input.eof())
 		{
 			getline(input, s, '\n');
-			string wrd = "Дата и время вылета: ";
+			string wrd = "Р”Р°С‚Р° Рё РІСЂРµРјСЏ РІС‹Р»РµС‚Р°: ";
 			result.execdate = result.execdate.FromString(s.substr(wrd.length(), s.length()));
 
 
@@ -149,23 +149,23 @@ Flight ReadFromString(ifstream& input)
 		if (!input.eof())
 		{
 			getline(input, s, '\n');
-			string wrd = "Вес багажа: ";
+			string wrd = "Р’РµСЃ Р±Р°РіР°Р¶Р°: ";
 			result.bagweight = atoi(s.substr(wrd.length(), s.length()).c_str());
 		}
 	}
 	catch (...)
 	{
-		cout << "Ошибка записи в файл!" << endl;
+		cout << "РћС€РёР±РєР° Р·Р°РїРёСЃРё РІ С„Р°Р№Р»!" << endl;
 	}
 	return result;
 }
 
 
-// поиск равного элемента по выбранному критерию
-// typesearch - тип поиска
-//1 - по номеру рейса
-//2 - по месту
-//3 - по дате
+// РїРѕРёСЃРє СЂР°РІРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РїРѕ РІС‹Р±СЂР°РЅРЅРѕРјСѓ РєСЂРёС‚РµСЂРёСЋ
+// typesearch - С‚РёРї РїРѕРёСЃРєР°
+//1 - РїРѕ РЅРѕРјРµСЂСѓ СЂРµР№СЃР°
+//2 - РїРѕ РјРµСЃС‚Сѓ
+//3 - РїРѕ РґР°С‚Рµ
 bool SearchElement(Flight m, Flight n, int typesearch)
 {
 	switch (typesearch)
@@ -183,7 +183,7 @@ bool SearchElement(Flight m, Flight n, int typesearch)
 	}
 }
 
-// ввод критерия поиска в зависимости от выбранного типа 
+// РІРІРѕРґ РєСЂРёС‚РµСЂРёСЏ РїРѕРёСЃРєР° РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РІС‹Р±СЂР°РЅРЅРѕРіРѕ С‚РёРїР° 
 
 Flight InputChangeTypeSearch(int typesearch)
 {
@@ -191,13 +191,13 @@ Flight InputChangeTypeSearch(int typesearch)
 	switch (typesearch)
 	{
 	case 1:
-		result.flynum = InputNumber(0, 100, "Введите номер рейса: ");
+		result.flynum = InputNumber(0, 100, "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ СЂРµР№СЃР°: ");
 		return result;
 	case 2:
-		result.location = InputInformation("Введите пункт назначения: ");
+		result.location = InputInformation("Р’РІРµРґРёС‚Рµ РїСѓРЅРєС‚ РЅР°Р·РЅР°С‡РµРЅРёСЏ: ");
 		return result;
 	case 3:
-		result.bagweight = InputNumber(0, 100, "Введите вес багажа: ");
+		result.bagweight = InputNumber(0, 100, "Р’РІРµРґРёС‚Рµ РІРµСЃ Р±Р°РіР°Р¶Р°: ");
 		return result;
 	case 4:
 		result.execdate.InputDate();
@@ -207,7 +207,7 @@ Flight InputChangeTypeSearch(int typesearch)
 	}
 }
 
-// сравнения структур в зависимости от выбранного поля для сортировки
+// СЃСЂР°РІРЅРµРЅРёСЏ СЃС‚СЂСѓРєС‚СѓСЂ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РІС‹Р±СЂР°РЅРЅРѕРіРѕ РїРѕР»СЏ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё
 
 int Sorte(Flight n, Flight m, int typesearch)
 {

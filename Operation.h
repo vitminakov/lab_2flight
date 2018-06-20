@@ -1,4 +1,4 @@
-//работа с векторами и операции над ними
+п»ї//СЂР°Р±РѕС‚Р° СЃ РІРµРєС‚РѕСЂР°РјРё Рё РѕРїРµСЂР°С†РёРё РЅР°Рґ РЅРёРјРё
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -16,7 +16,7 @@ using namespace std;
 template <class Type>
 class Task {
 private:
-	// сортировка по заданному критерию 
+	// СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РєСЂРёС‚РµСЂРёСЋ 
 	void ShellSort(int n, int typ, int(*Compare)(Type, Type, int))
 	{
 		int i, j, step;
@@ -36,7 +36,7 @@ private:
 			}
 
 	}
-	// бинарный поиск
+	// Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє
 	int BinarySearchElement(int left, int right, int typesearch, Type d, int(*Compare)(Type, Type, int))
 	{
 		int midd = 0;
@@ -44,14 +44,14 @@ private:
 		{
 			midd = (left + right) / 2;
 
-			if (Compare(d, vect[midd], typesearch) == -1)// если искомое больше значения в ячейке
-				right = midd - 1;				// смещаем правую границу поиска
-			else if (Compare(d, vect[midd], typesearch) == 1)  // если искомое меньше значения в ячейке
-				left = midd + 1;					// смещаем левую границу поиска
-			else                       // иначе (значения равны)
-				return midd;           // функция возвращает индекс ячейки
+			if (Compare(d, vect[midd], typesearch) == -1)// РµСЃР»Рё РёСЃРєРѕРјРѕРµ Р±РѕР»СЊС€Рµ Р·РЅР°С‡РµРЅРёСЏ РІ СЏС‡РµР№РєРµ
+				right = midd - 1;				// СЃРјРµС‰Р°РµРј РїСЂР°РІСѓСЋ РіСЂР°РЅРёС†Сѓ РїРѕРёСЃРєР°
+			else if (Compare(d, vect[midd], typesearch) == 1)  // РµСЃР»Рё РёСЃРєРѕРјРѕРµ РјРµРЅСЊС€Рµ Р·РЅР°С‡РµРЅРёСЏ РІ СЏС‡РµР№РєРµ
+				left = midd + 1;					// СЃРјРµС‰Р°РµРј Р»РµРІСѓСЋ РіСЂР°РЅРёС†Сѓ РїРѕРёСЃРєР°
+			else                       // РёРЅР°С‡Рµ (Р·РЅР°С‡РµРЅРёСЏ СЂР°РІРЅС‹)
+				return midd;           // С„СѓРЅРєС†РёСЏ РІРѕР·РІСЂР°С‰Р°РµС‚ РёРЅРґРµРєСЃ СЏС‡РµР№РєРё
 
-			if (left > right)          // если границы сомкнулись 
+			if (left > right)          // РµСЃР»Рё РіСЂР°РЅРёС†С‹ СЃРѕРјРєРЅСѓР»РёСЃСЊ 
 				return -1;
 		}
 	}
@@ -60,33 +60,33 @@ public:
 	Task() {}
 	~Task() {}
 
-	// удаление элемента
+	// СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
 	void Remove( int numb)
 	{
 		if (numb != 0)
 			vect.erase(vect.begin() + numb-1);
 	}
 	
-	// добавление элемента
+	// РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
 	void Add(Type &elem)
 	{
 		vect.push_back(elem);
 	}
 
-	//размер вектора
+	//СЂР°Р·РјРµСЂ РІРµРєС‚РѕСЂР°
 	int size()
 	{
 		return vect.size();
 	}
 
-	// проверка на пустоту
+	// РїСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
 	bool Is_empty()
 	{
 		return (vect.size() == 0);
 	}
 
-	// вывод в файл
-	// void(*f) (Type) - указатель на функцию, которая записывает одну структуру в файл  
+	// РІС‹РІРѕРґ РІ С„Р°Р№Р»
+	// void(*f) (Type) - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С„СѓРЅРєС†РёСЋ, РєРѕС‚РѕСЂР°СЏ Р·Р°РїРёСЃС‹РІР°РµС‚ РѕРґРЅСѓ СЃС‚СЂСѓРєС‚СѓСЂСѓ РІ С„Р°Р№Р»  
 	void OutputFile(vector<Type> items,string (*f)(Type,int))
 	{
 		string newfname = InputFileName();
@@ -100,32 +100,32 @@ public:
 				fout << f(*pos,count) << ' ';
 				count++;
 			}
-			cout << endl << "Файл заполнен!" << endl;
+			cout << endl << "Р¤Р°Р№Р» Р·Р°РїРѕР»РЅРµРЅ!" << endl;
 			fout.close();
 		}
 		else
 		{
-			cout << "Файл не заполнен!" << endl;
+			cout << "Р¤Р°Р№Р» РЅРµ Р·Р°РїРѕР»РЅРµРЅ!" << endl;
 		}
 	}
 
-	// вывод на экран
-	// void(*f) (Type) - указатель на функцию, которая считывает одну структуру на экран  
+	// РІС‹РІРѕРґ РЅР° СЌРєСЂР°РЅ
+	// void(*f) (Type) - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С„СѓРЅРєС†РёСЋ, РєРѕС‚РѕСЂР°СЏ СЃС‡РёС‚С‹РІР°РµС‚ РѕРґРЅСѓ СЃС‚СЂСѓРєС‚СѓСЂСѓ РЅР° СЌРєСЂР°РЅ  
 	void OutputScreen(vector<Type> items, void (*f) (Type))
 	{
 		vector<Type>::const_iterator pos;
 		int count = 1;
 		for (pos = items.begin(); pos != items.end(); ++pos)
 		{
-			cout << "Запись № " << count << endl;
+			cout << "Р—Р°РїРёСЃСЊ в„– " << count << endl;
 			f(*pos);
 			++count;
 			cout << endl;
 		}
 	}
 
-	// ввод из файла
-	// Type(*f)(ifstream&) - указатель на функцию, которая считывает одну структуру из файла 
+	// РІРІРѕРґ РёР· С„Р°Р№Р»Р°
+	// Type(*f)(ifstream&) - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С„СѓРЅРєС†РёСЋ, РєРѕС‚РѕСЂР°СЏ СЃС‡РёС‚С‹РІР°РµС‚ РѕРґРЅСѓ СЃС‚СЂСѓРєС‚СѓСЂСѓ РёР· С„Р°Р№Р»Р° 
 	bool ReadFromFile(Type(*f)(ifstream&))
 	{
 		string newfname = InputFileName();
@@ -135,7 +135,7 @@ public:
 
 		if (!input)
 		{
-			cout << "Не удалось открыть файл" << endl;
+			cout << "РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р»" << endl;
 			return false;
 		}
 		else
@@ -151,8 +151,8 @@ public:
 		}
 	}
 
-	// ввод с экрана
-	//Type(*f)() - указатель на функцию, которая вводит одну структуру с консоли
+	// РІРІРѕРґ СЃ СЌРєСЂР°РЅР°
+	//Type(*f)() - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С„СѓРЅРєС†РёСЋ, РєРѕС‚РѕСЂР°СЏ РІРІРѕРґРёС‚ РѕРґРЅСѓ СЃС‚СЂСѓРєС‚СѓСЂСѓ СЃ РєРѕРЅСЃРѕР»Рё
 	void ReadFromScreen(Type (*f)())
 	{
 		int n;
@@ -160,12 +160,12 @@ public:
 		do
 		{
 			vect.push_back(f());
-			n = InputNumber(0, 1, "Вы хотите добавить элемент? (1 - да, 0 - нет)\nВаш выбор: ");
+			n = InputNumber(0, 1, "Р’С‹ С…РѕС‚РёС‚Рµ РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚? (1 - РґР°, 0 - РЅРµС‚)\nР’Р°С€ РІС‹Р±РѕСЂ: ");
 		} while (n != 0);
 	}
 
-	// линейный поиск
-	// bool(*Equal)(Type, Type, int) - указатель на функцию, которая проверяет равенство искомого эл-та с текущим по typesearch
+	// Р»РёРЅРµР№РЅС‹Р№ РїРѕРёСЃРє
+	// bool(*Equal)(Type, Type, int) - СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С„СѓРЅРєС†РёСЋ, РєРѕС‚РѕСЂР°СЏ РїСЂРѕРІРµСЂСЏРµС‚ СЂР°РІРµРЅСЃС‚РІРѕ РёСЃРєРѕРјРѕРіРѕ СЌР»-С‚Р° СЃ С‚РµРєСѓС‰РёРј РїРѕ typesearch
 	vector<Type> LinearySearch(Type search_elem,bool(*Equal)(Type,Type, int),int typesearch)
 	{
 		vector<Type> NewVect;
@@ -179,7 +179,7 @@ public:
 		return NewVect;
 	}
 
-	// бинарный поиск
+	// Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє
 	vector<Type> BinarySearch( int typesearch, Type find_element, int(*Compare)(Type, Type, int), bool(*Equal)(Type, Type, int))
 	{
 		vector<Type> NewVect;

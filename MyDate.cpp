@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <sstream>
 #include <math.h>
 #include <string>
@@ -7,8 +7,8 @@
 #include "HelpUtils.h"
 #include "MyDate.h"
 
-//подтип дата
-// проверка является ли год високосным
+//РїРѕРґС‚РёРї РґР°С‚Р°
+// РїСЂРѕРІРµСЂРєР° СЏРІР»СЏРµС‚СЃСЏ Р»Рё РіРѕРґ РІРёСЃРѕРєРѕСЃРЅС‹Рј
 bool MyDate::IsLeap(int year)
 {
 	if (year % 4)
@@ -18,28 +18,28 @@ bool MyDate::IsLeap(int year)
 	return !(year % 400);
 }
 
-// проверка даты на корректность
+// РїСЂРѕРІРµСЂРєР° РґР°С‚С‹ РЅР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ
 bool MyDate::CorrectDate(int day, int month, int year, string &message) {
 
-	// если год вискосный                            если не високосный
+	// РµСЃР»Рё РіРѕРґ РІРёСЃРєРѕСЃРЅС‹Р№                            РµСЃР»Рё РЅРµ РІРёСЃРѕРєРѕСЃРЅС‹Р№
 	if ((month == 2 && day > 29 && IsLeap(year)) || (month == 2 && day > 28 && !IsLeap(year)))
 	{
-		message = "Неверное кол-во дней в феврале!";
+		message = "РќРµРІРµСЂРЅРѕРµ РєРѕР»-РІРѕ РґРЅРµР№ РІ С„РµРІСЂР°Р»Рµ!";
 		return false;
 	}
-	//кол-во дней в месяце
+	//РєРѕР»-РІРѕ РґРЅРµР№ РІ РјРµСЃСЏС†Рµ
 	if (month == 4 || month == 6 || month == 9 || month == 11)
 	{
 		if (day > 30)
 		{
-			message = "Неверное кол-во дней в месяце!";
+			message = "РќРµРІРµСЂРЅРѕРµ РєРѕР»-РІРѕ РґРЅРµР№ РІ РјРµСЃСЏС†Рµ!";
 			return false;
 		}
 	}
 	return true;
 }
 
-// конструктор по умолчанию
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 MyDate::MyDate()
 {
 	int day = 1;
@@ -47,38 +47,38 @@ MyDate::MyDate()
 	int year = 1970;
 }
 
-// ввод даты с консоли
+// РІРІРѕРґ РґР°С‚С‹ СЃ РєРѕРЅСЃРѕР»Рё
 void MyDate::InputDate()
 {
-	bool correct_date = true; // корректна ли введенная дата
-	string message = "";  // сообщение о причине ошибки
+	bool correct_date = true; // РєРѕСЂСЂРµРєС‚РЅР° Р»Рё РІРІРµРґРµРЅРЅР°СЏ РґР°С‚Р°
+	string message = "";  // СЃРѕРѕР±С‰РµРЅРёРµ Рѕ РїСЂРёС‡РёРЅРµ РѕС€РёР±РєРё
 	do
 	{
 		if (!correct_date)
 			cout << message << endl;
-		day = InputNumber(1, 31, "Ввод даты:\nВведите день (1-31): ");
-		month = InputNumber(1, 12, "Введите номер месяца (1-12): ");
-		year = InputNumber(1970, 2100, "Введите год (1970-2100):");
-		hours = InputNumber(0, 23, "Ввод времени:\nВведите часы (0-23):");
-		minutes = InputNumber(0, 59, "Введите минуты (0-59):");
+		day = InputNumber(1, 31, "Р’РІРѕРґ РґР°С‚С‹:\nР’РІРµРґРёС‚Рµ РґРµРЅСЊ (1-31): ");
+		month = InputNumber(1, 12, "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РјРµСЃСЏС†Р° (1-12): ");
+		year = InputNumber(1970, 2100, "Р’РІРµРґРёС‚Рµ РіРѕРґ (1970-2100):");
+		hours = InputNumber(0, 23, "Р’РІРѕРґ РІСЂРµРјРµРЅРё:\nР’РІРµРґРёС‚Рµ С‡Р°СЃС‹ (0-23):");
+		minutes = InputNumber(0, 59, "Р’РІРµРґРёС‚Рµ РјРёРЅСѓС‚С‹ (0-59):");
 		correct_date = CorrectDate(day, month, year, message);
-	} while (!correct_date);  // повторять ввод пока не корректная дата
+	} while (!correct_date);  // РїРѕРІС‚РѕСЂСЏС‚СЊ РІРІРѕРґ РїРѕРєР° РЅРµ РєРѕСЂСЂРµРєС‚РЅР°СЏ РґР°С‚Р°
 }
 
-// перевод даты в строку (для последующей записи в файл)
+// РїРµСЂРµРІРѕРґ РґР°С‚С‹ РІ СЃС‚СЂРѕРєСѓ (РґР»СЏ РїРѕСЃР»РµРґСѓСЋС‰РµР№ Р·Р°РїРёСЃРё РІ С„Р°Р№Р»)
 string MyDate::ToString()
 {
 	return (to_string(day) + ' ' + to_string(month) + ' ' +
 		to_string(year) + ' ' + to_string(hours) + ':' + to_string(minutes));
 }
 
-// перегруженный оператор равенства
+// РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ СЂР°РІРµРЅСЃС‚РІР°
 bool MyDate::operator == (const MyDate &c)
 {
 	return ((day == c.day) && (month == c.month) && (year == c.year) && (hours = c.hours) && (minutes = c.minutes));
 }
 
-// конструктор копирования
+// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 MyDate& MyDate::operator = (MyDate c)
 {
 	day = c.day;
@@ -90,21 +90,21 @@ MyDate& MyDate::operator = (MyDate c)
 	return (*this);
 }
 
-// перегруженный оператор больше
+// РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ Р±РѕР»СЊС€Рµ
 bool MyDate::operator > (const MyDate &c)
 {
 	return ((year > c.year) || ((year == c.year) && (month > c.month)) || ((year == c.year) && (month == c.month) && (day>c.day)));
 }
 
-// перегруженные оператор меньше
+// РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Рµ РѕРїРµСЂР°С‚РѕСЂ РјРµРЅСЊС€Рµ
 bool MyDate::operator < (const MyDate &c)
 {
 	return ((year < c.year) || ((year == c.year) && (month < c.month)) || ((year == c.year) && (month == c.month) && (day<c.day)));
 }
 
-//извлечение структуры "дата" из строки 
-// Формат:
-// день месяц год
+//РёР·РІР»РµС‡РµРЅРёРµ СЃС‚СЂСѓРєС‚СѓСЂС‹ "РґР°С‚Р°" РёР· СЃС‚СЂРѕРєРё 
+// Р¤РѕСЂРјР°С‚:
+// РґРµРЅСЊ РјРµСЃСЏС† РіРѕРґ
 MyDate MyDate::FromString(string str)
 {
 	MyDate result;
@@ -125,7 +125,7 @@ MyDate MyDate::FromString(string str)
 	}
 	catch (...)
 	{
-		cout << "Ошибка записи в файл!" << endl;
+		cout << "РћС€РёР±РєР° Р·Р°РїРёСЃРё РІ С„Р°Р№Р»!" << endl;
 	}
 	return result;
 }
